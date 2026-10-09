@@ -13,14 +13,13 @@ import {
   Scale,
   LogOut,
   ChevronDown,
-  Sparkles,
 } from 'lucide-react';
 import { AllmeraLogo } from './AllmeraLogo';
 
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  onOpenAiAdvisor: () => void;
+  onOpenAiAdvisor?: () => void;
   currentUser?: string;
   onLogout?: () => void;
 }
@@ -49,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'overview', label: 'Visão Geral', icon: Home },
     {
       id: 'vendors',
-      label: 'Huawei vs Concorrentes',
+      label: 'Comercial',
       icon: Scale,
       badge: 'Estudo TCO',
       highlight: true,
@@ -211,18 +210,8 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Right: Actions (AI Advisor, User profile, Logout, Mobile toggle) */}
+        {/* Right: Actions (User profile, Logout, Mobile toggle) */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Executive AI Advisor Button */}
-          <button
-            onClick={onOpenAiAdvisor}
-            className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 px-3.5 py-2 text-xs font-semibold text-white shadow-xs hover:shadow-sm transition-all active:scale-95 cursor-pointer"
-            title="Abrir Consultoria Executiva por IA"
-          >
-            <Sparkles className="h-3.5 w-3.5 text-emerald-200 group-hover:rotate-12 transition-transform" />
-            <span className="hidden sm:inline whitespace-nowrap">Consultoria IA</span>
-          </button>
-
           {/* User profile indicator */}
           <div className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 rounded-xl border border-slate-200/90 bg-slate-50 text-slate-700 text-xs font-medium">
             <span className="relative flex h-2 w-2">
