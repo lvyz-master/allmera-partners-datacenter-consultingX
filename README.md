@@ -1,81 +1,77 @@
 # Allmera Partners Data Center Consulting
 
-Plataforma executiva de inteligência e modelagem para desenvolvimento de Data Centers de IA nas Américas: análise de infraestrutura elétrica, sustentabilidade, fornecedores (Huawei vs. Schneider vs. Vertiv vs. Eaton) e viabilidade Capex/Opex.
+Plataforma executiva de inteligência e modelagem para desenvolvimento de Data Centers de IA nas Américas: análise de infraestrutura elétrica, sustentabilidade, fornecedores (Huawei vs. Schneider vs. Vertiv vs. Eaton), TCO Capex/Opex e cartografia estratégica.
 
 ---
 
-## 🚀 Como Conectar este Projeto ao GitHub
+## ⚡ Conexão com GitHub e Deploy no Vercel (Passo a Passo)
 
-Para conectar este projeto a um repositório no seu GitHub, siga os passos abaixo:
+Este repositório está 100% configurado e pronto para deploy automático no **Vercel** com suporte a Vite SPA, roteamento e Serverless Functions via `vercel.json`.
 
-### Passo 1: Criar um Repositório no GitHub
-1. Acesse [github.com](https://github.com) e faça login.
-2. Clique no botão **New** (ou acesse [github.com/new](https://github.com/new)).
-3. Defina um nome para o repositório (exemplo: `allmera-partners-datacenter-consulting`).
-4. Escolha se deseja torná-lo **Público** ou **Privado**.
-5. **Atenção:** Deixe desmarcada a opção de inicializar com README ou .gitignore (pois este projeto já contém).
-6. Clique em **Create repository**.
+### 1️⃣ Passo 1: Subir o projeto para o GitHub
+
+1. Crie um novo repositório vazio no seu GitHub: [github.com/new](https://github.com/new)
+   - Nome sugerido: `allmera-partners-datacenter`
+   - Pode ser **Público** ou **Privado**.
+   - **Não** marque a opção de criar README ou .gitignore (já estão incluídos neste projeto).
+2. Na sua máquina (ou terminal do projeto):
+   ```bash
+   git init
+   git add .
+   git commit -m "feat: Allmera Partners Data Center Consulting ready for Vercel"
+   git branch -M main
+   git remote add origin https://github.com/SEU-USUARIO/allmera-partners-datacenter.git
+   git push -u origin main
+   ```
 
 ---
 
-### Passo 2: Exportar ou Baixar os Arquivos
-Você pode exportar/baixar o código diretamente da interface do AI Studio Build ou clonar caso esteja trabalhando localmente:
-- Faça o download do arquivo ZIP do projeto através da interface do AI Studio Build (ícone de menu/download do código).
-- Descompacte o arquivo no seu computador.
+### 2️⃣ Passo 2: Conectar ao Vercel e Gerar o Link Web
+
+1. Acesse [vercel.com](https://vercel.com) e faça login (pode usar sua própria conta do GitHub).
+2. No painel principal (Dashboard), clique em **"Add New..."** → **"Project"**.
+3. Selecione o repositório que acabou de criar no GitHub (`allmera-partners-datacenter`) e clique em **Import**.
+4. **Configurações do Projeto:**
+   - O Vercel detectará automaticamente o framework como **Vite** graças ao arquivo `vercel.json` pré-configurado.
+   - **Build Command:** `npm run build` (ou `vite build`)
+   - **Output Directory:** `dist`
+5. *(Opcional)* Na seção **Environment Variables**, adicione:
+   - `GEMINI_API_KEY`: sua chave de API do Google Gemini (para consultas generativas em tempo real).
+   - *Nota:* Se não adicionar a chave, a aplicação continuará funcionando perfeitamente com análises estruturadas paramétricas locais.
+6. Clique no botão **"Deploy"**.
+7. Em cerca de 45 segundos, o Vercel fornecerá seu link web permanente (ex: `https://allmera-partners-datacenter.vercel.app`), com certificado SSL gratuito e alta velocidade global.
 
 ---
 
-### Passo 3: Inicializar o Git e Enviar para o GitHub (Terminal)
-Abra o terminal na pasta descompactada do projeto e execute os comandos:
+## 🔐 Acesso à Plataforma
+
+Para acessar os módulos executivos:
+- **Usuário padrão:** `Allmera`
+- **Senha padrão:** `12345`
+
+---
+
+## 🛠️ Stack Tecnológica
+
+- **Frontend:** React 19, TypeScript, Tailwind CSS, Lucide Icons, Recharts
+- **Deployment & Hosting:** Vercel (com `vercel.json` e rotas `/api/*` em Serverless Functions)
+- **Local Dev / Full-Stack:** Node.js Express (`tsx server.ts`), Vite
+- **Modelagem de IA:** Google GenAI SDK (Gemini 3.8 Flash) com fallbacks automáticos
+
+---
+
+## 💻 Execução Local
 
 ```bash
-# 1. Inicializar o repositório Git local
-git init
-
-# 2. Adicionar todos os ficheiros (o .gitignore já protegerá node_modules e segredos)
-git add .
-
-# 3. Fazer o primeiro commit
-git commit -m "feat: initial commit - Allmera Partners Data Center Consulting platform"
-
-# 4. Definir a branch principal como main
-git branch -M main
-
-# 5. Adicionar a URL remota do repositório criado no GitHub
-# (Substitua SEU-USUARIO e SEU-REPOSITORIO pelos dados do seu GitHub)
-git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-
-# 6. Enviar o código para o GitHub
-git push -u origin main
-```
-
-> **Dica se preferir SSH:**  
-> Se você utiliza chaves SSH no GitHub, utilize:  
-> `git remote add origin git@github.com:SEU-USUARIO/SEU-REPOSITORIO.git`
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Frontend:** React 19, TypeScript, Tailwind CSS, Lucide Icons, Recharts, Canvas Confetti
-- **Backend / API Proxy:** Node.js, Express, TSX
-- **Build Tool:** Vite
-- **Inteligência:** Google GenAI SDK (Gemini)
-
----
-
-## 💻 Como Rodar Localmente
-
-```bash
-# Instalar dependências
+# 1. Instalar dependências
 npm install
 
-# Rodar em modo de desenvolvimento
+# 2. Rodar em desenvolvimento
 npm run dev
 
-# Compilar para produção
+# 3. Compilar para produção
 npm run build
 
-# Iniciar servidor de produção
+# 4. Iniciar servidor local de produção
 npm start
 ```

@@ -84,7 +84,7 @@ export const VendorTcoComparison: React.FC<VendorTcoComparisonProps> = ({
       <div className="border-b border-slate-200 pb-5">
         <div className="text-xs font-semibold text-emerald-700 tracking-wider uppercase flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-          <span>Dossiê Comparativo de Fornecedores · Bruno Zavaleta DataCenter</span>
+          <span>Dossiê Comparativo de Fornecedores · Allmera Partners Data Center Consulting</span>
         </div>
         <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
           Huawei vs. Concorrentes (Vertiv, Schneider, Eaton)

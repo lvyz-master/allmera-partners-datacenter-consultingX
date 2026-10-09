@@ -123,7 +123,7 @@ export const InteractiveAmericasMap: React.FC<InteractiveAmericasMapProps> = ({
         <div>
           <div className="text-xs font-semibold text-emerald-700 tracking-wider uppercase flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-            <span>Cartografia Estratégica Continental · Bruno Zavaleta DataCenter</span>
+            <span>Cartografia Estratégica Continental · Allmera Partners Data Center Consulting</span>
           </div>
           <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
             Mapa de Infraestrutura de IA, Fila Elétrica & Cabos Submarinos

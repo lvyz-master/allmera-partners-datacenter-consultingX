@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/ai/analyze-region",
+      "destination": "/api/ai/analyze-region"
+    },
+    {
+      "source": "/api/ai/simulate-scenario",
+      "destination": "/api/ai/simulate-scenario"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
