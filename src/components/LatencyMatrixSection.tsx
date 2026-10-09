@@ -1,5 +1,6 @@
 import React from 'react';
 import { Globe, Radio, Cpu } from 'lucide-react';
+import subseaFiberImg from '../assets/images/subsea_fiber_landing_1791072832841.jpg';
 
 export const LatencyMatrixSection: React.FC = () => {
   // Benchmark latency matrix data (Round-trip time in milliseconds)
@@ -32,11 +33,12 @@ export const LatencyMatrixSection: React.FC = () => {
       {/* Visual Image & Subsea Cable Landing Hub */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
         <div className="lg:col-span-6 relative">
-          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm">
+          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm bg-slate-900">
             <img
-              src="/src/assets/images/subsea_fiber_landing_1791072832841.jpg"
-              alt="Subsea fiber optic cable landing station at coastal horizon"
+              src={subseaFiberImg}
+              alt="Estação de Cabos Submarinos e Infraestrutura Óptica Costeira"
               referrerPolicy="no-referrer"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />

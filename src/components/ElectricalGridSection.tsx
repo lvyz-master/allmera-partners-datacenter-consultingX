@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { REGIONS_DATA } from '../data/regionsData';
 import { BatteryCharging } from 'lucide-react';
+import gridSubstationImg from '../assets/images/grid_substation_infra_1791072813415.jpg';
 
 export const ElectricalGridSection: React.FC = () => {
   const [metricSort, setMetricSort] = useState<'queue' | 'tariff' | 'renewable'>('queue');
@@ -53,11 +54,12 @@ export const ElectricalGridSection: React.FC = () => {
         </div>
 
         <div className="lg:col-span-6 relative">
-          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm">
+          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm bg-slate-900">
             <img
-              src="/src/assets/images/grid_substation_infra_1791072813415.jpg"
-              alt="High-voltage substation and BESS containers"
+              src={gridSubstationImg}
+              alt="Subestação de Alta Tensão 230kV e Contêineres de Bateria BESS"
               referrerPolicy="no-referrer"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />

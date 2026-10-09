@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Zap, Globe, Droplets, Map, Scale } from 'lucide-react';
+import heroAiDatacenterImg from '../assets/images/hero_ai_datacenter_1791072802880.jpg';
 
 interface ExecutiveSummaryProps {
   onNavigateTab: (tab: string) => void;
@@ -52,11 +53,12 @@ export const ExecutiveSummary: React.FC<ExecutiveSummaryProps> = ({
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-md">
+            <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-md bg-slate-900">
               <img
-                src="/src/assets/images/hero_ai_datacenter_1791072802880.jpg"
-                alt="Hyperscale AI Data Center Campus with Solar Arrays and Substation"
+                src={heroAiDatacenterImg}
+                alt="Campus Hyperscale de Data Centers de IA com Subestação e Energia Renovável"
                 referrerPolicy="no-referrer"
+                loading="eager"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />

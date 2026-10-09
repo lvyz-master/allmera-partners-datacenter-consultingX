@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { REGULATORY_COMPENDIUM } from '../data/regulatoryPolicies';
 import { ShieldCheck, Droplets, SunMedium, FileText, CheckCircle, Scale, AlertCircle } from 'lucide-react';
+import renewableMatrixImg from '../assets/images/renewable_power_matrix_1791072823621.jpg';
 
 export const RegulatoryFrameworkSection: React.FC = () => {
   const [selectedCountryIndex, setSelectedCountryIndex] = useState<number>(0);
@@ -44,11 +45,12 @@ export const RegulatoryFrameworkSection: React.FC = () => {
         </div>
 
         <div className="lg:col-span-6 relative">
-          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm">
+          <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[16/10] shadow-sm bg-slate-900">
             <img
-              src="/src/assets/images/renewable_power_matrix_1791072823621.jpg"
-              alt="Utility scale solar photovoltaic farm and wind turbines"
+              src={renewableMatrixImg}
+              alt="Parque Híbrido de Geração Solar Fotovoltaica e Turbinas Eólicas"
               referrerPolicy="no-referrer"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
