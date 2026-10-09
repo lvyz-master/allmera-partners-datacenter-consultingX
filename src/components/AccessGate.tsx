@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Lock, User, Eye, EyeOff, ArrowRight, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react';
+import { AllmeraLogo } from './AllmeraLogo';
 
 interface AccessGateProps {
   onLoginSuccess: (username: string) => void;
@@ -50,22 +51,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ onLoginSuccess }) => {
       {/* Top micro bar */}
       <header className="relative z-10 border-b border-slate-100 bg-white/80 backdrop-blur-md px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg overflow-hidden border border-slate-200/90 shadow-2xs bg-white">
-            <img
-              src="/src/assets/images/allmera_logo_1791575083091.jpg"
-              alt="Allmera Partners Logo"
-              referrerPolicy="no-referrer"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div>
-            <span className="font-display font-bold text-sm tracking-tight text-slate-900">
-              Allmera Partners
-            </span>
-            <span className="text-[11px] text-slate-500 font-medium ml-1.5 hidden sm:inline">
-              Data Center Consulting
-            </span>
-          </div>
+          <AllmeraLogo size="sm" />
         </div>
 
         <div className="flex items-center gap-2">
@@ -82,25 +68,14 @@ export const AccessGate: React.FC<AccessGateProps> = ({ onLoginSuccess }) => {
           {/* Card container */}
           <div className="rounded-2xl border border-slate-200 bg-white p-7 sm:p-9 shadow-xl shadow-slate-200/50 space-y-6">
             {/* Header within card */}
-            <div className="text-center space-y-3">
-              <div className="mx-auto h-20 w-20 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-white p-1">
-                <img
-                  src="/src/assets/images/allmera_logo_1791575083091.jpg"
-                  alt="Allmera Partners Data Center Consulting"
-                  referrerPolicy="no-referrer"
-                  className="h-full w-full object-contain"
-                />
+            <div className="text-center space-y-4">
+              <div className="flex justify-center">
+                <AllmeraLogo size="xl" />
               </div>
 
               <div>
-                <h1 className="font-display text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                  Allmera Partners
-                </h1>
-                <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mt-0.5">
-                  Data Center Consulting
-                </p>
-                <p className="text-xs text-slate-500 mt-2">
-                  Acesse a plataforma de inteligência de infraestrutura, modelagem de TCO e análise de rede elétrica das Américas.
+                <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                  Acesse a plataforma corporativa de inteligência de infraestrutura, modelagem de TCO e análise de rede elétrica das Américas.
                 </p>
               </div>
             </div>

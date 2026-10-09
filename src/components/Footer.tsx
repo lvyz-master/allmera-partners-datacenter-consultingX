@@ -1,4 +1,5 @@
 import React from 'react';
+import { AllmeraLogo } from './AllmeraLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -6,19 +7,7 @@ export const Footer: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-3 md:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 rounded-lg overflow-hidden border border-slate-200 bg-white shadow-2xs shrink-0">
-                <img
-                  src="/src/assets/images/allmera_logo_1791575083091.jpg"
-                  alt="Allmera Partners Data Center Consulting Logo"
-                  referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <span className="text-slate-900 font-display font-bold text-base">
-                Allmera Partners
-              </span>
-            </div>
+            <AllmeraLogo size="sm" />
             <p className="text-slate-500 text-xs leading-relaxed">
               <strong>Allmera Partners Data Center Consulting</strong> — inteligência estratégica, modelagem de TCO e consultoria de infraestrutura de alta densidade e rede elétrica nas Américas.
             </p>
