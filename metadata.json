@@ -1,0 +1,6 @@
+{
+  "name": "Bruno Zavaleta DataCenter - Americas AI Intelligence",
+  "description": "Estudo analítico e de inteligência para desenvolvimento de Datacenters de IA nas Américas: infraestrutura elétrica, latência em mercados emergentes e regulação de energia renovável.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
