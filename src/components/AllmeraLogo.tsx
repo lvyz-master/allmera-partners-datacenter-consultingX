@@ -4,6 +4,7 @@ interface AllmeraLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   showText?: boolean;
   textColor?: 'dark' | 'light';
+  subtitle?: string;
   className?: string;
 }
 
@@ -11,6 +12,7 @@ export const AllmeraLogo: React.FC<AllmeraLogoProps> = ({
   size = 'md',
   showText = true,
   textColor = 'dark',
+  subtitle = 'Data Center Consulting',
   className = '',
 }) => {
   // Dimensions for emblem
@@ -146,7 +148,7 @@ export const AllmeraLogo: React.FC<AllmeraLogoProps> = ({
               textColor === 'light' ? 'text-slate-400' : 'text-slate-500'
             }`}
           >
-            Data Center Consulting
+            {subtitle}
           </span>
         </div>
       )}

@@ -22,6 +22,7 @@ interface HeaderProps {
   onOpenAiAdvisor?: () => void;
   currentUser?: string;
   onLogout?: () => void;
+  onSwitchPortal?: (portal: 'hub' | 'bess') => void;
 }
 
 interface NavItem {
@@ -39,6 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAiAdvisor,
   currentUser = 'Allmera',
   onLogout,
+  onSwitchPortal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
@@ -81,14 +83,34 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md shadow-xs">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Allmera Partners Brand with elegant green "A" */}
-        <div className="flex items-center shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => handleSelectTab('overview')}
             className="flex items-center text-left group cursor-pointer focus:outline-none transition-transform active:scale-[0.99]"
             title="Allmera Partners Data Center Consulting"
           >
-            <AllmeraLogo size="md" />
+            <AllmeraLogo size="md" subtitle="Data Center Consulting" />
           </button>
+
+          {onSwitchPortal && (
+            <div className="hidden lg:flex items-center gap-1.5 border-l border-slate-200 pl-3">
+              <button
+                onClick={() => onSwitchPortal('hub')}
+                className="text-xs font-semibold text-slate-600 hover:text-emerald-700 px-2.5 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                title="Voltar ao Hub de Escolha"
+              >
+                Hub
+              </button>
+              <button
+                onClick={() => onSwitchPortal('bess')}
+                className="text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/90 px-2.5 py-1 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
+                title="Mudar para BESS Consulting"
+              >
+                <Zap className="h-3 w-3 text-emerald-600" />
+                <span>BESS Consulting</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Center: Desktop Navigation Bar */}
@@ -255,6 +277,29 @@ export const Header: React.FC<HeaderProps> = ({
               Navegue pelos relatórios técnicos de data center
             </div>
           </div>
+
+          {onSwitchPortal && (
+            <div className="grid grid-cols-2 gap-2 p-2 bg-slate-50 rounded-xl mb-3 border border-slate-200">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onSwitchPortal('hub');
+                }}
+                className="py-2 text-center text-xs font-semibold rounded-lg bg-white border border-slate-200 text-slate-700"
+              >
+                Voltar ao Hub
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onSwitchPortal('bess');
+                }}
+                className="py-2 text-center text-xs font-bold rounded-lg bg-emerald-600 text-white"
+              >
+                BESS Consulting
+              </button>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             {allNavItems.map((item) => {

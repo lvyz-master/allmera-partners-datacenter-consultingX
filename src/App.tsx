@@ -18,6 +18,8 @@ import { AIAssessmentModal } from './components/AIAssessmentModal';
 import { Footer } from './components/Footer';
 import { REGIONS_DATA } from './data/regionsData';
 import { RegionData } from './types/datacenter';
+import { ConsultingHub } from './components/ConsultingHub';
+import { BessConsultingView } from './components/BessConsultingView';
 
 export default function App() {
   // Session Authentication state with default user
@@ -26,6 +28,11 @@ export default function App() {
   });
   const [currentUser, setCurrentUser] = useState<string>(() => {
     return localStorage.getItem('allmera_auth_user') || 'Allmera';
+  });
+
+  // Current Portal: hub (selection page) | datacenter | bess
+  const [currentPortal, setCurrentPortal] = useState<'hub' | 'datacenter' | 'bess'>(() => {
+    return (localStorage.getItem('allmera_current_portal') as 'hub' | 'datacenter' | 'bess') || 'hub';
   });
 
   const [activeTab, setActiveTab] = useState<string>('overview');
@@ -39,17 +46,48 @@ export default function App() {
   const handleLoginSuccess = (username: string) => {
     setIsAuthenticated(true);
     setCurrentUser(username);
+    setCurrentPortal('hub');
     localStorage.setItem('allmera_auth_token', 'true');
     localStorage.setItem('allmera_auth_user', username);
+    localStorage.setItem('allmera_current_portal', 'hub');
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    setCurrentPortal('hub');
     localStorage.removeItem('allmera_auth_token');
+    localStorage.removeItem('allmera_current_portal');
+  };
+
+  const handleSelectPortal = (portal: 'hub' | 'datacenter' | 'bess') => {
+    setCurrentPortal(portal);
+    localStorage.setItem('allmera_current_portal', portal);
   };
 
   if (!isAuthenticated) {
     return <AccessGate onLoginSuccess={handleLoginSuccess} />;
+  }
+
+  // Option 0: Consulting Hub selection screen (Post-login portal router)
+  if (currentPortal === 'hub') {
+    return (
+      <ConsultingHub
+        currentUser={currentUser}
+        onSelectPortal={handleSelectPortal}
+        onLogout={handleLogout}
+      />
+    );
+  }
+
+  // Option 2: BESS Consulting workspace (Sizing, Cardápio, Vendors Brazil, Single-line diagram & PDF dossier)
+  if (currentPortal === 'bess') {
+    return (
+      <BessConsultingView
+        currentUser={currentUser}
+        onLogout={handleLogout}
+        onSwitchPortal={handleSelectPortal}
+      />
+    );
   }
 
   const handleOpenAiForRegion = (region: RegionData) => {
@@ -91,6 +129,7 @@ export default function App() {
           onOpenAiAdvisor={handleOpenAiGeneral}
           currentUser={currentUser}
           onLogout={handleLogout}
+          onSwitchPortal={handleSelectPortal}
         />
 
         <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
